@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wesselink_Evenementen_Desktop_Version"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="580" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
-    
+        Background="Transparent"
+        FontFamily="{DynamicResource MaterialDesignFont}" ResizeMode="NoResize" AllowsTransparency="True">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -23,18 +23,49 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Margin="10" BorderThickness="1px" BorderBrush="Black">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Content="home" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
-                <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" />
-                <Button Content="accounts" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
-                <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" />
-                <Button Content="evenementen" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
-                <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" />
-                <Button Content="contact" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
-                <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" />
+        <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Background="White" CornerRadius="20">
+            <StackPanel>
+
+                <Border MouseLeftButtonDown="MoveWindow" HorizontalAlignment="Stretch" Background="White" CornerRadius="20">
+                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,5,0,0" Height="25px">
+                        <materialDesign:PackIcon Kind="Circle" Foreground="Red" Margin="0,0,5,0" VerticalAlignment="Center" MouseLeftButtonDown="CloseWindow">
+                            <materialDesign:PackIcon.Effect>
+                                <DropShadowEffect Direction="0" RenderingBias="Quality" ShadowDepth="0" BlurRadius="10"/>
+                            </materialDesign:PackIcon.Effect>
+                        </materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="Circle" Foreground="Yellow" VerticalAlignment="Center" MouseLeftButtonDown="MinimizeWindow" >
+                            <materialDesign:PackIcon.Effect>
+                                <DropShadowEffect Direction="0" RenderingBias="Quality" ShadowDepth="0" BlurRadius="10"/>
+                            </materialDesign:PackIcon.Effect>
+                        </materialDesign:PackIcon>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Margin="10,0,10,10" BorderThickness="1px" BorderBrush="Black">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Button Content="home" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
+                        <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" Foreground="Black" />
+                        <Button Content="accounts" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
+                        <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" Foreground="Black" />
+                        <Button Content="evenementen" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
+                        <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" Foreground="Black" />
+                        <Button Content="contact" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Grid.Column="0" Grid.Row="2" Grid.RowSpan="2">
+                    <Image Source="https://billetto.co.uk/blog/wp-content/uploads/2019/04/hanny-naibaho-388579-unsplash-e1554461063517.jpg" Margin="10,0"/>
+                </StackPanel>
+                
+                <Border Grid.Column="0" Grid.Row="4" HorizontalAlignment="Stretch" Margin="10" BorderThickness="1px" BorderBrush="Black">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                        <TextBlock Text="©Copyright 2020 - Wesselink_Evenementen" Foreground="Black" FontSize="15px"/>
+                    </StackPanel>
+                </Border>
+
             </StackPanel>
         </Border>
     </Grid>

@@ -24,5 +24,20 @@ namespace Wesselink_Evenementen_Desktop_Version
         {
             InitializeComponent();
         }
+
+        private void MoveWindow(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void CloseWindow(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MinimizeWindow(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }
