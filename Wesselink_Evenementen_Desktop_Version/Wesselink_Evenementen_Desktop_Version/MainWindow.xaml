@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wesselink_Evenementen_Desktop_Version"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Margin="10" BorderThickness="1px" BorderBrush="Black">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Content="home" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
+                <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" />
+                <Button Content="accounts" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
+                <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" />
+                <Button Content="evenementen" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
+                <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" />
+                <Button Content="contact" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
+                <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" />
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
