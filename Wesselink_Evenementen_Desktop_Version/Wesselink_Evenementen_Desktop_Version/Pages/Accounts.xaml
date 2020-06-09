@@ -28,11 +28,11 @@
         <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Margin="10,0,0,0">
             <Button Content="Zoek personeel" FontSize="16px" Margin="0,0,0,10" Foreground="White" Click="SearchEmployeesBtn"/>
             <Button Content="Overzicht personeel" FontSize="16" Margin="0,0,0,10" Foreground="White"/>
-            <Button Content="Profiel beheren" FontSize="16" Margin="0,0,0,10" Foreground="White"/>
+            <Button Content="Profiel beheren" FontSize="16" Margin="0,0,0,10" Foreground="White" Click="ManageAccountBtn"/>
             <Button Content="Overzicht gewerkte uren" FontSize="16" Foreground="White"/>
         </StackPanel>
 
-        <WrapPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="AccountWrapPanel"/>
+        <WrapPanel Grid.Column="1" x:Name="AccountWrapPanel" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
         
     </Grid>
 </Page>

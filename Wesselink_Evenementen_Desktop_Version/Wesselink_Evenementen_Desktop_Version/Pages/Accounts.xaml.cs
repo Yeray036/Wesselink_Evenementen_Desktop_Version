@@ -28,8 +28,16 @@ namespace Wesselink_Evenementen_Desktop_Version.Pages
 
         private void SearchEmployeesBtn(object sender, RoutedEventArgs e)
         {
+            AccountWrapPanel.Children.Clear();
             SearchEmployees searchEmployees = new SearchEmployees();
             AccountWrapPanel.Children.Add(searchEmployees);
+        }
+
+        private void ManageAccountBtn(object sender, RoutedEventArgs e)
+        {
+            AccountWrapPanel.Children.Clear();
+            ManageAccount manageAccount = new ManageAccount();
+            AccountWrapPanel.Children.Add(manageAccount);
         }
     }
 }

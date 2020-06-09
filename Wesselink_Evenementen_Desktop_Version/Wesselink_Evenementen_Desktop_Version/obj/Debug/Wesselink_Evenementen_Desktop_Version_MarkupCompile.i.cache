@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\School\Examen voorbereiding 2020\Wesselink_Evenementen_Desktop_Version\Wesselink_Evenementen_Desktop_Version\Wesselink_Evenementen_Desktop_Version\App.xaml
-3-329780314
+4-878456060
 
-9-1775246822
+10-1577315980
 15-1251822409
-MainWindow.xaml;Pages\Accounts.xaml;UserControls\SearchEmployees.xaml;
+MainWindow.xaml;Pages\Accounts.xaml;UserControls\ManageAccount.xaml;UserControls\SearchEmployees.xaml;
 
 True
 

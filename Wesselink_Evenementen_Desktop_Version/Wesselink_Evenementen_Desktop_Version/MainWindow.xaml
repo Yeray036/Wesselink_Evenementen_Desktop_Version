@@ -28,7 +28,7 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Background="White" CornerRadius="20" Grid.ColumnSpan="2"/>
-        <Border MouseLeftButtonDown="MoveWindow" HorizontalAlignment="Stretch" Background="White" CornerRadius="20">
+        <Border MouseLeftButtonDown="MoveWindow" HorizontalAlignment="Stretch" Background="White" CornerRadius="20" Grid.ColumnSpan="2">
             <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,5,0,0" Height="25px">
                 <materialDesign:PackIcon Kind="Circle" Foreground="Red" Margin="0,0,5,0" VerticalAlignment="Center" MouseLeftButtonDown="CloseWindow">
                     <materialDesign:PackIcon.Effect>
