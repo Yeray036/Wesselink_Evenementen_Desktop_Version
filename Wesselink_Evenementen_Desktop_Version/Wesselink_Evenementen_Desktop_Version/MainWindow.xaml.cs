@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wesselink_Evenementen_Desktop_Version.Pages;
 
 namespace Wesselink_Evenementen_Desktop_Version
 {
@@ -38,6 +39,13 @@ namespace Wesselink_Evenementen_Desktop_Version
         private void MinimizeWindow(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void OpenAccountsPage(object sender, RoutedEventArgs e)
+        {
+            BackgroundImage.Source = null;
+            Accounts accountsPage = new Accounts();
+            MainFrame.Navigate(accountsPage);
         }
     }
 }

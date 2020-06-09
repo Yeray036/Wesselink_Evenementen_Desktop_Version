@@ -61,6 +61,15 @@ namespace Wesselink_Evenementen_Desktop_Version.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SERVER=DESKTOP-D4DVHOE\\SQLEXPRESS;Database=Wesselink_Evenementen;Trusted_Connection=True;MultipleActiveResultSets=True.
+        /// </summary>
+        internal static string DbConnection {
+            get {
+                return ResourceManager.GetString("DbConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Roboto_Black {
