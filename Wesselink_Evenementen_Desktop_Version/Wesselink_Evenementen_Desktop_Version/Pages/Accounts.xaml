@@ -32,7 +32,9 @@
             <Button Content="Overzicht gewerkte uren" FontSize="16" Foreground="White"/>
         </StackPanel>
 
-        <WrapPanel Grid.Column="1" x:Name="AccountWrapPanel" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <WrapPanel x:Name="AccountWrapPanel" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </ScrollViewer>
         
     </Grid>
 </Page>

@@ -36,8 +36,15 @@ namespace Wesselink_Evenementen_Desktop_Version.Pages
         private void ManageAccountBtn(object sender, RoutedEventArgs e)
         {
             AccountWrapPanel.Children.Clear();
-            ManageAccount manageAccount = new ManageAccount();
-            AccountWrapPanel.Children.Add(manageAccount);
+            if (Login.LoginAccepted == true)
+            {
+                ManageAccount manageAccount = new ManageAccount();
+                AccountWrapPanel.Children.Add(manageAccount);
+            }
+            else
+            {
+                MessageBox.Show("Niet ingelogd");
+            }
         }
     }
 }

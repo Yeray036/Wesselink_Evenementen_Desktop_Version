@@ -79,6 +79,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\UsersConfig.cs" />
+    <Compile Include="Pages\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ManageAccount.xaml.cs">
       <DependentUpon>ManageAccount.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\Accounts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

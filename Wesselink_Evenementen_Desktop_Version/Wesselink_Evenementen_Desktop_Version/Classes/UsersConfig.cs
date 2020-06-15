@@ -23,6 +23,7 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
         public static string Receptionist { get; set; }
         public static string Waiter { get; set; }
         public static string Host { get; set; }
+        public static string ProfilePicture { get; set; }
     }
 
     class UsersConfig
@@ -159,7 +160,7 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
             try
             {
                 sqlConnection.Open();
-                string query = $"SELECT Name, Surname, Email, PhoneNumber, Barkeeper, Receptionist, Waiter, Host FROM WesselinkUsers WHERE Id=@Id";
+                string query = $"SELECT Name, Surname, Email, PhoneNumber, Barkeeper, Receptionist, Waiter, Host, PfPicture FROM WesselinkUsers WHERE Id=@Id";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Parameters.AddWithValue("@Id", Id);
                 cmd.Connection = sqlConnection;
@@ -179,6 +180,7 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
                         AccountDetails.Receptionist = dataReader.GetString(5);
                         AccountDetails.Waiter = dataReader.GetString(6);
                         AccountDetails.Host = dataReader.GetString(7);
+                        AccountDetails.ProfilePicture = dataReader.GetString(8);
                     }
                 }
                 else
@@ -195,6 +197,7 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
                 accountDetails.Add(AccountDetails.Receptionist.ToString());
                 accountDetails.Add(AccountDetails.Waiter.ToString());
                 accountDetails.Add(AccountDetails.Host.ToString());
+                accountDetails.Add(AccountDetails.ProfilePicture.ToString());
                 return accountDetails;
 
             }
@@ -203,6 +206,48 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
                 sqlConnection.Close();
                 MessageBox.Show(ex.Message);
                 return null;
+            }
+        }
+
+        public void SendNewAccountDetails()
+        {
+            try
+            {
+                //String query = "UPDATE WesselinkUsers(Name, Surname, Email, PhoneNumber, Barkeeper, Receptionist, Waiter, Host) VALUES (@Name, @Surname, @Email, @PhoneNumber, @Barkeeper, @Receptionist, @Waiter, @Host) WHERE Id='@Id'";
+                String query = "UPDATE WesselinkUsers SET Name='@Name', Surname='@Surname', Email='@Email', PhoneNumber='@PhoneNumber', Barkeeper='Barkeeper', Receptionist='@Receptionist', Waiter='@Waiter', Host='@Host' WHERE Id=@Id";
+
+                using (SqlCommand command = new SqlCommand(query, sqlConnection))
+                {
+                    command.Parameters.AddWithValue("@Name", AccountDetails.Name);
+                    command.Parameters.AddWithValue("@Surname", AccountDetails.Surname);
+                    command.Parameters.AddWithValue("@Email", AccountDetails.Email);
+                    command.Parameters.AddWithValue("@PhoneNumber", AccountDetails.PhoneNumber);
+                    command.Parameters.AddWithValue("@Barkeeper", AccountDetails.Barkeeper);
+                    command.Parameters.AddWithValue("@Receptionist", AccountDetails.Receptionist);
+                    command.Parameters.AddWithValue("@Waiter", AccountDetails.Waiter);
+                    command.Parameters.AddWithValue("@Host", AccountDetails.Host);
+                    command.Parameters.AddWithValue("@Id", UsersConfig.Id);
+
+                    sqlConnection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0)
+                    {
+                        MessageBox.Show("Fout van het toevoegen van data in de Database!");
+                        sqlConnection.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"{AccountDetails.Name} is geupdate");
+                        sqlConnection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                sqlConnection.Close();
             }
         }
     }

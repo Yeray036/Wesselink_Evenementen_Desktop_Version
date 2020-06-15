@@ -45,7 +45,7 @@
 
         <Border Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Margin="10,0,10,10" BorderThickness="1px" BorderBrush="Black" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Content="home" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent"/>
+                <Button Content="home" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent" Click="HomePageBtn"/>
                 <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" Foreground="Black" />
                 <Button Content="accounts" Background="Transparent" Foreground="Black" FontSize="20" FontFamily="/Wesselink_Evenementen_Desktop_Version;component/Resources/#Roboto" Margin="0,0,5,0" BorderBrush="Transparent" Click="OpenAccountsPage"/>
                 <TextBlock Text="|" FontSize="36" Margin="0,0,5,0" Foreground="Black" />
@@ -56,12 +56,17 @@
         </Border>
 
         <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2" Margin="10,0,10,10" Orientation="Horizontal" VerticalAlignment="Center">
-            <Button Content="Login" Margin="0,0,10,0" />
-            <Button Content="Registreer" Margin="0,0,10,0"/>
+            <Button Content="Login" Margin="0,0,10,0" Click="LoginPageBtn" x:Name="MainLoginBtn" FontSize="15px"/>
+            <Button Content="Registreer" Margin="0,0,10,0" x:Name="MainRegisterBtn" FontSize="15px"/>
         </StackPanel>
 
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Grid.ColumnSpan="2" Margin="10,0,10,10" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock x:Name="MainWelkomUserText" FontSize="21px" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0"/>
+            <Button Content="Uitloggen" Margin="0,0,10,0" x:Name="MainLogoutBtn" FontSize="15px" Click="LogoutBtn"/>
+        </StackPanel>
+        
         <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" VerticalContentAlignment="Center"/>
             <Image Source="https://billetto.co.uk/blog/wp-content/uploads/2019/04/hanny-naibaho-388579-unsplash-e1554461063517.jpg" Margin="10,0" Name="BackgroundImage"/>
         </StackPanel>
 
