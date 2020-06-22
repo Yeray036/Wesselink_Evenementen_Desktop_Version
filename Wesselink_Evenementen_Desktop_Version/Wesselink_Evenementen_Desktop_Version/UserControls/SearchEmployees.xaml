@@ -37,5 +37,9 @@
                 </StackPanel>
             </StackPanel>
         </Border>
+
+        <Border Grid.Column="0" Grid.Row="1" BorderThickness="2" BorderBrush="Black" Margin="0">
+            <DataGrid x:Name="SearchEmployeesGrid" AutoGenerateColumns="True" ItemsSource="{Binding}"/>
+        </Border>
     </Grid>
 </UserControl>

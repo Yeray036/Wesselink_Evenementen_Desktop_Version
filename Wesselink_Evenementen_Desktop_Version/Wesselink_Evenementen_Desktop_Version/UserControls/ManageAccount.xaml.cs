@@ -143,7 +143,7 @@ namespace Wesselink_Evenementen_Desktop_Version.UserControls
                     AccountDetails.Host = "0";
                 }
                 UsersConfig.SendNewAccountDetails();
-                AccountChanged = false;
+                MainWindow.mainWindow.MainWelkomUserText.Text = "Welkom " + AccountDetails.Name;
             }
             else
             {

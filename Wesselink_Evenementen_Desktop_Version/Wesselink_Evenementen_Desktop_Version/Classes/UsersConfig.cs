@@ -33,6 +33,7 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
         public static string Hash { get; set; }
         public string Pwd { get; set; }
         public static int Id { get; set; }
+        public static DataTable ZipCodeEmployees {get; set;}
 
         //Creates a hash from password and adds a salt of 128bytes to the hash and then encrypts it with sha256.
         public void CreateHash(string password)
@@ -73,7 +74,7 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
         {
             try
             {
-                SqlCommand cmd = new SqlCommand($"SELECT SaltPwd, HashPwd FROM WesselinkUsers WHERE name=@Name", sqlConnection);
+                SqlCommand cmd = new SqlCommand($"SELECT SaltPwd, HashPwd FROM WesselinkUsers WHERE LOWER(Name)=@Name COLLATE SQL_Latin1_General_CP1_CI_AS", sqlConnection);
                 cmd.Parameters.AddWithValue("@Name", Name);
                 sqlConnection.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -119,7 +120,7 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
                 if (Pwd == Hash)
                 {
                     sqlConnection.Open();
-                    string query = $"SELECT Name, SaltPwd, HashPwd, Id FROM WesselinkUsers WHERE Name=@Name AND SaltPwd=@Salt AND HashPwd=@Pwd";
+                    string query = $"SELECT Name, SaltPwd, HashPwd, Id FROM WesselinkUsers WHERE LOWER(Name)=@Name COLLATE SQL_Latin1_General_CP1_CI_AS AND SaltPwd=@Salt AND HashPwd=@Pwd";
                     SqlCommand cmd = new SqlCommand();
                     cmd.Parameters.AddWithValue("@Name", Name);
                     cmd.Parameters.AddWithValue("@Salt", Salt);
@@ -214,7 +215,7 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
             try
             {
                 //String query = "UPDATE WesselinkUsers(Name, Surname, Email, PhoneNumber, Barkeeper, Receptionist, Waiter, Host) VALUES (@Name, @Surname, @Email, @PhoneNumber, @Barkeeper, @Receptionist, @Waiter, @Host) WHERE Id='@Id'";
-                String query = "UPDATE WesselinkUsers SET Name='@Name', Surname='@Surname', Email='@Email', PhoneNumber='@PhoneNumber', Barkeeper='Barkeeper', Receptionist='@Receptionist', Waiter='@Waiter', Host='@Host' WHERE Id=@Id";
+                String query = "UPDATE WesselinkUsers SET Name=@Name, Surname=@Surname, Email=@Email, PhoneNumber=@PhoneNumber, Barkeeper=@Barkeeper, Receptionist=@Receptionist, Waiter=@Waiter, Host=@Host WHERE Id=@Id";
 
                 using (SqlCommand command = new SqlCommand(query, sqlConnection))
                 {
@@ -248,6 +249,26 @@ namespace Wesselink_Evenementen_Desktop_Version.Classes
             {
                 Console.WriteLine(ex.Message);
                 sqlConnection.Close();
+            }
+        }
+
+        public void GetAllEmployeesBasedOnZipCode()
+        {
+            try
+            {
+                string query = "SELECT Name, Surname, PhoneNumber, Email, Postcode FROM WesselinkUsers";
+
+                using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
+                {
+                    sqlConnection.Open();
+                    ZipCodeEmployees = new DataTable();
+                    ZipCodeEmployees.Load(cmd.ExecuteReader());
+                }
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }

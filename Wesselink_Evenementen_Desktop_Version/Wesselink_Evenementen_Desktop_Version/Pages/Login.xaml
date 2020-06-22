@@ -33,8 +33,9 @@
             <PasswordBox x:Name="PasswordInput" FontSize="21px" Foreground="Black" materialDesign:HintAssist.Hint="Wachtwoord" HorizontalContentAlignment="Center"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0">
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Orientation="Vertical">
             <Button Content="Login" FontSize="21px" Click="LoginHandlerBtn" x:Name="LoginBtnLayout"/>
+            <TextBlock FontSize="21px" Foreground="Red" x:Name="ErrorText" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" />
         </StackPanel>
     </Grid>
 </Page>

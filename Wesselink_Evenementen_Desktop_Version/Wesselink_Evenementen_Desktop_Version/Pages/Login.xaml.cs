@@ -34,6 +34,7 @@ namespace Wesselink_Evenementen_Desktop_Version.Pages
         {
             try
             {
+                ErrorText.Text = "";
                 LoginAccepted = false;
                 if (UsernameInput.Text != String.Empty && PasswordInput.Password != String.Empty)
                 {
@@ -52,13 +53,13 @@ namespace Wesselink_Evenementen_Desktop_Version.Pages
                     }
                     else
                     {
-                        MessageBox.Show("Geen geldige account");
+                        ErrorText.Text = "Foutmelding: controleer naam/wachtwoord!";
                         LoginAccepted = false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Verplichten velden zijn leeg");
+                    ErrorText.Text = "Foutmelding: verplichten velden zijn leeg";
                     LoginAccepted = false;
                 }
 
